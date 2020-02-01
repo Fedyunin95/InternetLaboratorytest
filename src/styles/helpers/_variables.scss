@@ -1,0 +1,21 @@
+// Breakpoints
+$desktop: 1200px;
+$laptop: 1024px;
+$tablet: 768px;
+$mobileL: 425px;
+$mobileM: 375px;
+$mobileS: 320px;
+
+$container-winger-padding-mobile: 10px;
+$container-winger-padding: 40px;
+$container-max-width-inner: 1160px;
+$container-max-width-outer: $container-max-width-inner + $container-winger-padding * 2;
+
+// Colors
+$color-basic: #303030;
+$color-main: #FF3754;
+$color-gray: #888888;
+
+//Fonts
+$font-main: Museo Sans Cyrl;
+$font-title: Bebas Neue;

@@ -1,0 +1,266 @@
+.header {
+	height: 110px;
+	display: flex;
+	align-items: center;
+	box-sizing: border-box;
+	padding: 25px 92px;
+	position: sticky;
+	top: 0;
+	background-color: transparent;
+	color: #fff;
+	z-index: 999;
+	fill: #fff;
+	font-weight: bold;
+
+	@media all and (max-width: $tablet - 1) {
+		height: 59px;
+		padding: 16px 10px;
+	}
+
+	&:after {
+		content: "";
+		position: absolute;
+		width: 100%;
+		height: 0;
+		background-color: #fff;
+		transition: height .4s ease;
+		bottom: 0;
+		left: 0;
+		z-index: -2;
+	}
+
+	&_scroll,
+	&.menu_open {
+		color: $color-basic;
+		fill: $color-basic;
+		&:after {
+			height: 100%;
+		}
+
+		.header__navigation {
+			.button_burger {
+				&:before,
+				&:after {
+					background-color: $color-basic;
+				}
+			}
+		}
+	}
+
+	&.menu_open {
+		.button_burger {
+			&:before {
+				transform: rotate(-45deg);
+			}
+
+			&:after {
+				transform: rotate(45deg);
+			}
+		}
+		.menu {
+			height: auto;
+			min-height: calc(100vh - 110px);
+			max-height: 0;
+			padding-top: 21px;
+
+			@media all and (max-width: $tablet) {
+				min-height: calc(100vh - 59px);
+			}
+		}
+	}
+
+	&__logo {
+		width: 219px;
+		height: 58px;
+		fill: inherit;
+
+		@media all and (max-width: $tablet - 1) {
+			width: 93px;
+			height: 25px;
+			margin-right: auto;
+		}
+	}
+
+	&__contacts {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		height: 100%;
+		margin-left: auto;
+		margin-right: 56px;
+
+		@media all and (max-width: $tablet - 1) {
+			display: none;
+		}
+
+		a {
+			margin: 0 14px;
+
+			&:first-child {
+				margin-left: 0;
+			}
+
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+	}
+	
+	.phone {
+		display: flex;
+		align-items: center;
+		fill: $color-main;
+		font-size: 24px;
+		line-height: 29px;
+
+		@media all and (max-width: 1023px) {
+			display: none;
+		}
+
+		&__icon {
+			width: 24px;
+			height: 24px;
+			margin-right: 19px;
+		}
+	}
+	
+	.vkontakte__link {
+		width: 34px;
+		height: 34px;
+	}
+	
+	.instagram__link {
+		position: relative;
+		width: 34px;
+		height: 34px;
+
+		&:before,
+		&:after {
+			content: "";
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			background: radial-gradient(98.67% 98.67% at -7.7% 73.44%, #FFDD55 0%, #FFDD55 10%, #FF543E 50%, #C837AB 100%);
+			z-index: -1;
+		}
+
+		&:after {
+			background: radial-gradient(56.1% 56.1% at -0.32% -2.14%, #3771C8 0%, #3771C8 12.8%, rgba(102, 0, 255, 0) 100%);
+		}
+	}
+
+	&__navigation {
+		.button_burger {
+			position: relative;
+			width: 50px;
+			height: 50px;
+			cursor: pointer;
+
+			@media all and (max-width: $tablet - 1) {
+				width: 35px;
+				height: 35px;
+			}
+
+			&:before,
+			&:after {
+				content: "";
+				position: absolute;
+				width: 100%;
+				height: 2px;
+				background-color: #fff;
+				top: 50%;
+				left: 0;
+				transform-origin: center;
+				transform: translateY(-5px);
+				transition: transform .4s ease;
+			}
+
+			&:before {
+				transform: translateY(5px);
+			}
+
+			&:hover,
+			&:focus{
+				&:before {
+					transform: rotate(-45deg);
+				}
+
+				&:after {
+					transform: rotate(45deg);
+				}
+			}
+		}
+		.menu {
+			position: absolute;
+			display: block;
+			min-height: 0px;
+			max-height: 0px;
+			width: 100%;
+			left: 0;
+			top: 100%;
+			overflow: auto;
+			transition: min-height .4s ease, max-height .4s ease;
+			// box-sizing: border-box;
+
+			&:before {
+				content: "";
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				background: rgba(255, 255, 255, 0.9);
+				left: 0; top: 0;
+				filter: blur(50px);
+				z-index: -1;
+			}
+
+			&__link {
+				max-width: 50%;
+				margin: 0 auto 37px;
+				font-size: 50px;
+				line-height: 60px;
+				color: $color-basic;
+				display: block;
+
+				@media all and (max-width: 1023px) {
+					font-size: 20px;
+					line-height: 24px;
+					text-align: center;
+					margin-bottom: 15px;
+				}
+			}
+
+			.phone_mobile {
+				display: flex;
+				margin: 0;
+				font-size: 24px;
+				line-height: 29px;
+				justify-content: center;
+				max-resolution: 50%;
+				margin: 0 auto 23px;
+				@media all and (min-width: 1024px) {
+					display: none;
+				}
+
+				.phone__icon {
+					fill: $color-main;
+				}
+			}
+
+			.social_mobile {
+				display: grid;
+				grid-column-gap: 28px;
+				grid-template-columns: 34px 34px;
+				max-width: 50%;
+				margin: 0 auto;
+				justify-content: center;
+				margin-top: 3em;
+
+				@media all and (min-width: 1024px) {
+					display: none;
+				}
+			}
+		}
+	}
+}

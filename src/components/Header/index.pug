@@ -1,0 +1,37 @@
+header.header.js-header
+	.header__logo
+		svg
+			use(xlink:href=assetsDir + "images/sprite.symbol.svg#logo")
+	.header__contacts
+		a.phone(href="tel:8 499 999 99 99")
+			.phone__icon
+				svg
+					use(xlink:href=assetsDir + "images/sprite.symbol.svg#phone")
+			span.phone__text
+				| 8 499 999 99 99
+		a.instagram__link(href="*")
+			svg
+				use(xlink:href=assetsDir + "images/sprite.symbol.svg#instagram")
+		a.vkontakte__link(href="*")
+			svg
+				use(xlink:href=assetsDir + "images/sprite.symbol.svg#vk")
+	.header__navigation
+		.button_burger.js-menu-btn
+		nav.menu.js-menu
+			a.menu__link.phone_mobile(href="tel:8 499 999 99 99")
+				.phone__icon
+					svg
+						use(xlink:href=assetsDir + "images/sprite.symbol.svg#phone")
+				span.phone__text
+					| 8 499 999 99 99
+			-
+				var links = ["","","","",""]
+			each link in links
+				a.menu__link(href="*")= "Пункт меню" + link + 1
+			.social_mobile
+				a.instagram__link(href="*")
+					svg
+						use(xlink:href=assetsDir + "images/sprite.symbol.svg#instagram")
+				a.vkontakte__link(href="*")
+					svg
+						use(xlink:href=assetsDir + "images/sprite.symbol.svg#vk")

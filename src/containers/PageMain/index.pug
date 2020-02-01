@@ -1,0 +1,148 @@
+extends /containers/layout
+
+block variables
+
+block content
+
+	article.page-main.js-main-page
+		section.banner
+			.banner__image(style="background-image: url(" + assetsDir + "images/banner.png)")
+				img(src=assetsDir + "images/banner.png"  hidden)
+			h1.banner__title lorem ipsum dolor sit amet
+			h3.banner__subtitle
+				span.banner__subtitle_colored lorem 
+				| ipsum dolor sit amet
+			.honors
+				- 
+					var honors = [
+						{
+							icon: "first-place",
+							regionIcon: "worldwide",
+							text: "Lorem ipsum dol"
+						},
+						{
+							icon: "second-place",
+							regionIcon: "european-union",
+							text: "lorem ipsum"
+						},
+						{
+							icon: "medal",
+							regionIcon: "european-union",
+							text: "lorem ipsum dolor sit amet"
+						},
+						{
+							icon: "second-place",
+							regionIcon: "russia",
+							text: "lorem ipsum"
+						}
+					]
+				each honor in honors
+					.honor
+						.honor__icon(class="honor__icon_" + honor.icon)
+							svg
+								use(xlink:href=assetsDir + "images/sprite.symbol.svg#" + honor.icon)
+						.honor__region
+							svg
+								use(xlink:href=assetsDir + "images/sprite.symbol.svg#" + honor.regionIcon)
+						.honor__info= honor.text
+			button.banner__btn
+				| lorem ipsum dolor
+		section.slider.js-slider
+			h3.slider__title
+				| Второй блок
+			.slider__wrapper.swiper-wrapper
+				each index in [0, 1, 2, 3, 4]
+					.slider__slide.swiper-slide
+						.slider__slide__part.slider__slide__part_left
+							h5.title
+								| лоремова
+							p.subtitle
+								| ипсума анатольевна
+							p.subtext
+								| lorem ipsum dolor
+							button.btn-hide(disabled)
+								| скрыть
+							ul.list
+								-
+									var listItems = [
+										"lorem ipsum dolor lorem ipsum dolor",
+										"lorem ipsum dolor",
+										"lorem ipsum dolor lorem ipsum dolorlorem ipsum dolor lorem ipsum dolorlorem ipsum dolor lorem ipsum dolor",
+										"lorem ipsum dolor",
+										"lorem ipsum dolor",
+										"lorem ipsum dolor"
+									]
+								each item in listItems
+									p.list__item= item
+							.slider__slide__info
+								h5.title 
+									| lorem ipsum dolor
+								p.text
+									| lorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolorlorem ipsum dolor
+							.slider__slide__info
+								h5.title 
+									| lorem ipsum dolor
+								p.text
+									| lorem ipsum dolor lorem ipsum dolor
+						.slider__slide__part.slider__slide__part_right
+							.slider__slide__image(style="background-image:url(" + assetsDir +"images/sliderImage.png)")
+			.slider__navigation
+				.slider__btn.slider__btn_prev.js-prev-slide
+					svg
+						use(xlink:href=assetsDir + "images/sprite.symbol.svg#arrow")
+				.slider__pagination.js-slider-pagination
+				.slider__btn.slider__btn_next.js-next-slide
+					svg
+						use(xlink:href=assetsDir + "images/sprite.symbol.svg#arrow")
+		section.products
+			h3.title третий блок
+			.products__wrapper
+				-
+					var products = [
+						{
+							image: "fb.png",
+							title: "Lorem ipsum dolor sit amet.",
+							text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in nulla interdum felis placerat vulputate."
+						},
+						{
+							image: "amazon.png",
+							title: "Lorem ipsum dolor sit amet.",
+							text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in nulla interdum felis placerat vulputate."
+						},
+						{
+							image: "sony.png",
+							title: "Lorem ipsum dolor sit amet.",
+							text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in nulla interdum felis placerat vulputate."
+						},
+						{
+							image: "ae.png",
+							title: "Lorem ipsum dolor sit amet.",
+							text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in nulla interdum felis placerat vulputate."
+						},
+						{
+							image: "fb.png",
+							title: "Lorem ipsum dolor sit amet.",
+							text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in nulla interdum felis placerat vulputate."
+						},
+						{
+							image: "amazon.png",
+							title: "Lorem ipsum dolor sit amet.",
+							text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in nulla interdum felis placerat vulputate."
+						},
+						{
+							image: "sony.png",
+							title: "Lorem ipsum dolor sit amet.",
+							text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in nulla interdum felis placerat vulputate."
+						},
+						{
+							image: "ae.png",
+							title: "Lorem ipsum dolor sit amet.",
+							text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin in nulla interdum felis placerat vulputate."
+						}
+					]
+				each product in products
+					.propduct
+						.product__image(style="background-image: url(" + assetsDir + "images/" + product.image + ")")
+							img(src=assetsDir + "images/" + product.image hidden)
+						.product__title= product.title
+						.product__text= product.text
